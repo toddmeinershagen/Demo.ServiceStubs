@@ -6,7 +6,7 @@ using Nancy;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public class Route
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public interface ITemplateEngine
     {

@@ -4,7 +4,7 @@ using System.Threading;
 
 using Nancy;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public class ConfiguredModule : NancyModule
     {

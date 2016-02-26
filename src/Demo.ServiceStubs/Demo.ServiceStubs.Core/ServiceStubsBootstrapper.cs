@@ -1,25 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-using Demo.ServiceStubs.CommandLine.Rz;
+using Demo.ServiceStubs.Core.Rz;
 
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.ErrorHandling;
-using Nancy.Hosting.Self;
 using Nancy.TinyIoc;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
-    public class ServiceStubsHost : NancyHost
-    {
-        public ServiceStubsHost(Uri baseUri)
-            : base(baseUri, new StubServiceBootstrapper())
-        {
-        }
-    }
-
-    public class StubServiceBootstrapper : DefaultNancyBootstrapper
+    public class ServiceStubsBootstrapper : DefaultNancyBootstrapper
     {
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {

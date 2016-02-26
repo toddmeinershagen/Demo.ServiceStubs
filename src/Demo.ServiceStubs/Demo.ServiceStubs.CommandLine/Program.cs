@@ -4,6 +4,8 @@ using System.Security;
 using System.Security.Permissions;
 using System.Security.Policy;
 
+using Demo.ServiceStubs.Core;
+
 using Mono.Options;
 
 namespace Demo.ServiceStubs.CommandLine

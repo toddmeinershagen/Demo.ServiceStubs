@@ -3,7 +3,7 @@
 using RazorEngine;
 using RazorEngine.Templating;
 
-namespace Demo.ServiceStubs.CommandLine.Rz
+namespace Demo.ServiceStubs.Core.Rz
 {
     //NOTE:  https://github.com/Antaris/RazorEngine#temporary-files
     public class RazorTemplateEngine : ITemplateEngine
@@ -32,23 +32,5 @@ namespace Demo.ServiceStubs.CommandLine.Rz
             var templateContents = _templateProvider.GetContentsFor(templateKey, model);
             return Engine.Razor.RunCompile(templateContents, templateKey, modelType, model.ToExpando());
         }
-    }
-
-    public class TemplateKey : ITemplateKey
-    {
-        public TemplateKey(string templateKey)
-        {
-            Name = templateKey;
-            TemplateType = ResolveType.Global;
-            Context = this;
-        }
-        public string GetUniqueKeyString()
-        {
-            return Name;
-        }
-
-        public string Name { get; }
-        public ResolveType TemplateType { get; }
-        public ITemplateKey Context { get; }
     }
 }

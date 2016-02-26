@@ -2,23 +2,10 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public class TokenPoker : ITokenPoker
     {
-        //public string PokeData(string value, IDictionary<string, object> data)
-        //{
-        //    var reg = new Regex(@"{\w+}");
-
-        //    foreach (Match match in reg.Matches(value))
-        //    {
-        //        var key = match.Value.Substring(1, match.Value.Length - 2);
-        //        value = value.Replace(match.Value, data[key].ToString());
-        //    }
-
-        //    return value;
-        //}
-
         public string PokeData(string value, IDictionary<string, object> data)
         {
             var reg = new Regex(@"{[\w\.]+}");

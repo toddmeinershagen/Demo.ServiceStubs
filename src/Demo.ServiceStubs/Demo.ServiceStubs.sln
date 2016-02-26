@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.ServiceStubs.CommandLine", "Demo.ServiceStubs.CommandLine\Demo.ServiceStubs.CommandLine.csproj", "{80928E6F-8A83-4D78-AB3E-9AD85DEE97BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.ServiceStubs.Core", "Demo.ServiceStubs.Core\Demo.ServiceStubs.Core.csproj", "{5E987576-5957-4EED-88C5-46972E7D328D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{80928E6F-8A83-4D78-AB3E-9AD85DEE97BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80928E6F-8A83-4D78-AB3E-9AD85DEE97BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80928E6F-8A83-4D78-AB3E-9AD85DEE97BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E987576-5957-4EED-88C5-46972E7D328D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E987576-5957-4EED-88C5-46972E7D328D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E987576-5957-4EED-88C5-46972E7D328D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E987576-5957-4EED-88C5-46972E7D328D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

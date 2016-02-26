@@ -1,6 +1,6 @@
 ﻿using Antlr4.StringTemplate;
 
-namespace Demo.ServiceStubs.CommandLine.St
+namespace Demo.ServiceStubs.Core.St
 {
     public class AdvancedRenderer : IAttributeRenderer
     {

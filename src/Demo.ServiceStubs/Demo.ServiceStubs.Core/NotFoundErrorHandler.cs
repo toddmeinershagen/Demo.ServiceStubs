@@ -4,7 +4,7 @@ using Nancy;
 using Nancy.ErrorHandling;
 using Nancy.Responses.Negotiation;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public class NotFoundErrorHandler : IStatusCodeHandler
     {

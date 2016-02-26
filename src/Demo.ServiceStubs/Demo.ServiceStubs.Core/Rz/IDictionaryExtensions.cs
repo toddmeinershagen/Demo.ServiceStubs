@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Demo.ServiceStubs.CommandLine.Rz
+namespace Demo.ServiceStubs.Core.Rz
 {
     public static class IDictionaryExtensions
     {

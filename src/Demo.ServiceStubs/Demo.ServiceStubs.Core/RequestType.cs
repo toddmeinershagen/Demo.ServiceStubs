@@ -1,4 +1,4 @@
-﻿namespace Demo.ServiceStubs.CommandLine
+﻿namespace Demo.ServiceStubs.Core
 {
     public enum RequestType : int
     {

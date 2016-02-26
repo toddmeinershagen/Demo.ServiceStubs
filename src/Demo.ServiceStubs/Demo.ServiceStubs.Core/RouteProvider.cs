@@ -4,7 +4,7 @@ using System.IO;
 
 using Newtonsoft.Json;
 
-namespace Demo.ServiceStubs.CommandLine
+namespace Demo.ServiceStubs.Core
 {
     public class RouteProvider : IRouteProvider
     {
