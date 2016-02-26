@@ -25,7 +25,7 @@ namespace Demo.ServiceStubs.CommandLine
             options.Parse(Environment.GetCommandLineArgs());
 
             var uri = new Uri($"http://localhost:{port}");
-            using (var host = new StubServiceHost(uri))
+            using (var host = new ServiceStubsHost(uri))
             {
                 host.Start();
 
