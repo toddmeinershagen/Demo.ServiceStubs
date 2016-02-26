@@ -89,7 +89,7 @@
     <Compile Include="Rz\IDictionaryExtensions.cs" />
     <Compile Include="Rz\MassiveExpando.cs" />
     <Compile Include="Rz\RazorTemplateEngine.cs" />
-    <Compile Include="StubServiceHost.cs" />
+    <Compile Include="ServiceStubsHost.cs" />
     <Compile Include="St\AdvancedRenderer.cs" />
     <Compile Include="St\StringTemplateEngine.cs" />
     <Compile Include="TemplateProvider.cs" />

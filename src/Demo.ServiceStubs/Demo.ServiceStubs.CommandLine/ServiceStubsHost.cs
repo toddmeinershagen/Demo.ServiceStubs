@@ -11,11 +11,12 @@ using Nancy.TinyIoc;
 
 namespace Demo.ServiceStubs.CommandLine
 {
-    public class StubServiceHost : NancyHost
+    public class ServiceStubsHost : NancyHost
     {
-        public StubServiceHost(Uri baseUri)
+        public ServiceStubsHost(Uri baseUri)
             : base(baseUri, new StubServiceBootstrapper())
-        {}
+        {
+        }
     }
 
     public class StubServiceBootstrapper : DefaultNancyBootstrapper
