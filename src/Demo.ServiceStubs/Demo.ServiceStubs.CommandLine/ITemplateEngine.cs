@@ -4,6 +4,6 @@ namespace Demo.ServiceStubs.CommandLine
 {
     public interface ITemplateEngine
     {
-        string Parse(string templateKey, string template, IDictionary<string, object> model);
+        string Parse(string templateKey, IDictionary<string, object> model);
     }
 }

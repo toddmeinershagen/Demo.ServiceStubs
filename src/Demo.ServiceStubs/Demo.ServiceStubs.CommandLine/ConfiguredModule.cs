@@ -8,14 +8,10 @@ namespace Demo.ServiceStubs.CommandLine
 {
     public class ConfiguredModule : NancyModule
     {
-        private readonly ITokenPoker _poker;
-        private readonly ITemplateProvider _templateProvider;
         private readonly ITemplateEngine _engine;
 
-        public ConfiguredModule(IRouteProvider provider, ITokenPoker poker, ITemplateProvider templateProvider, ITemplateEngine engine)
+        public ConfiguredModule(IRouteProvider provider, ITemplateEngine engine)
         {
-            _poker = poker;
-            _templateProvider = templateProvider;
             _engine = engine;
 
             var routes = provider.GetRoutes();
@@ -62,12 +58,7 @@ namespace Demo.ServiceStubs.CommandLine
         {
             Console.WriteLine($"SUCCESS:  {Context.ResolvedRoute.Description.Path}");
 
-            var parameters = Context.GetParameters();
-            var path = route.Path;
-            path = _poker.PokeData(path, parameters);
-
-            var template = _templateProvider.GetContentsFor(path, parameters);
-            Response response = _engine.Parse(route.Template, template, parameters);
+            Response response = _engine.Parse(route.Path, Context.GetParameters());
             response.WithStatusCode(route.Status);
 
             return response;

@@ -21,7 +21,7 @@
     "type": "Post",
     "template": "/api/TransUnion",
     "path": "TransunionPost{Form.Id}.template",
-    "delayInMilliseconds": 1000
+    "delayInMilliseconds": [ 1000, 2000, 3000 ]
   },
   {
     "type": "Put",

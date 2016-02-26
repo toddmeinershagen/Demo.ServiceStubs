@@ -7,7 +7,14 @@ namespace Demo.ServiceStubs.CommandLine.St
 {
     public class StringTemplateEngine : ITemplateEngine
     {
-        public string Parse(string templateKey, string template, IDictionary<string, object> model)
+        private readonly ITemplateProvider _templateProvider;
+
+        public StringTemplateEngine(ITemplateProvider templateProvider)
+        {
+            _templateProvider = templateProvider;
+        }
+
+        public string Parse(string templateKey, IDictionary<string, object> model)
         {
             var group = new TemplateGroupString("group", "delimiters \"$\", \"$\"\r\nt(x) ::= \" $ x $ \"");
 
@@ -17,7 +24,8 @@ namespace Demo.ServiceStubs.CommandLine.St
             group.RegisterRenderer(typeof(double), renderer);
 			group.RegisterRenderer(typeof(decimal), renderer);
 
-            group.DefineTemplate("template", template, new[] { "Model" });
+            var templateContent = _templateProvider.GetContentsFor(templateKey, model);
+            group.DefineTemplate("template", templateContent, new[] { "Model" });
 
             var stringTemplate = group.GetInstanceOf("template");
             stringTemplate.Add("Model", model);

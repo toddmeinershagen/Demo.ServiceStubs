@@ -4,6 +4,6 @@ namespace Demo.ServiceStubs.CommandLine
 {
     public interface ITemplateProvider
     {
-        string GetContentsFor(string key, IDictionary<string, object> parameters);
+        string GetContentsFor(string templateKey, IDictionary<string, object> parameters);
     }
 }
