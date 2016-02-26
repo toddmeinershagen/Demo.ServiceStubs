@@ -11,16 +11,6 @@ namespace Demo.ServiceStubs.CommandLine
 {
     public static class NancyContextExtensions
     {
-        //public static IDictionary<string, object> GetParameters(this NancyContext context)
-        //{
-
-        //    var body = GetBody(context);
-        //    var cookies = context.Request.Cookies.ToDictionary(k => k.Key, k => (object)k.Value);
-        //    var headers = context.Request.Headers.ToDictionary(k => k.Key.Replace("-", ""), k => (object)k.Value.FirstOrDefault());
-        //    return new MergedDictionary<object>(body, cookies, context.Request.Form, headers, context.Request.Query);
-        //}
-
-
         public static IDictionary<string, object> GetParameters(this NancyContext context)
         {
             var body = GetBody(context);
@@ -53,7 +43,6 @@ namespace Demo.ServiceStubs.CommandLine
 
                 return JsonConvert.DeserializeObject<Dictionary<string, object>>(te.ReadToEnd(), settings);
             }
-
         }
 
         private static IDictionary<string, object> ConvertDynamicDictionary(DynamicDictionary dictionary)
@@ -63,6 +52,5 @@ namespace Demo.ServiceStubs.CommandLine
                     memberName => dictionary[memberName],
                     StringComparer.InvariantCultureIgnoreCase);
         }
-
     }
 }
