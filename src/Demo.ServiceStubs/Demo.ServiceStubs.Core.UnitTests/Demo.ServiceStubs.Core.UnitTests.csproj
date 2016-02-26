@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5E987576-5957-4EED-88C5-46972E7D328D}</ProjectGuid>
+    <ProjectGuid>{9B88FFF1-DAA0-4033-BA7A-265E4A2C5707}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.ServiceStubs.Core</RootNamespace>
-    <AssemblyName>Demo.ServiceStubs.Core</AssemblyName>
+    <RootNamespace>Demo.ServiceStubs.Core.UnitTests</RootNamespace>
+    <AssemblyName>Demo.ServiceStubs.Core.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr4.StringTemplate, Version=4.0.6.9004, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Antlr4.StringTemplate.4.0.6.9004\lib\net35\Antlr4.StringTemplate.dll</HintPath>
+    <Reference Include="FluentAssertions, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.2\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.2\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -46,16 +50,13 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.7.7\lib\net45\RazorEngine.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.0.5813.39031, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.0.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,32 +65,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfiguredModule.cs" />
-    <Compile Include="IRouteProvider.cs" />
-    <Compile Include="ITemplateEngine.cs" />
-    <Compile Include="ITemplateProvider.cs" />
-    <Compile Include="ITokenPoker.cs" />
-    <Compile Include="MergedDictionary.cs" />
-    <Compile Include="NancyContextExtensions.cs" />
-    <Compile Include="NotFoundErrorHandler.cs" />
-    <Compile Include="ObjectDictionaryConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestType.cs" />
-    <Compile Include="Route.cs" />
-    <Compile Include="RouteProvider.cs" />
-    <Compile Include="Rz\IDictionaryExtensions.cs" />
-    <Compile Include="Rz\MassiveExpando.cs" />
-    <Compile Include="Rz\RazorTemplateEngine.cs" />
-    <Compile Include="Rz\TemplateKey.cs" />
-    <Compile Include="ServiceStubsBootstrapper.cs" />
-    <Compile Include="ServiceStubsHost.cs" />
-    <Compile Include="St\AdvancedRenderer.cs" />
-    <Compile Include="St\StringTemplateEngine.cs" />
-    <Compile Include="TemplateProvider.cs" />
-    <Compile Include="TokenPoker.cs" />
+    <Compile Include="Sample\SystemGateway.cs" />
+    <Compile Include="Sample\SystemGatewayTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="System.template">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Demo.ServiceStubs.Core\Demo.ServiceStubs.Core.csproj">
+      <Project>{5e987576-5957-4eed-88c5-46972e7d328d}</Project>
+      <Name>Demo.ServiceStubs.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,7 +22,11 @@ namespace Demo.ServiceStubs.Core
 
         public void Handle(HttpStatusCode statusCode, NancyContext context)
         {
-            Console.WriteLine($"FAILURE:  {context.ResolvedRoute.Description.Path}");
+            if (context.Items.ContainsKey(ConfiguredModule.RouteResolvedKey) == false)
+            {
+                Console.WriteLine($"FAILURE:  {context.ResolvedRoute.Description.Path}");
+            }
+
             _defaultStatusCodeHandler.Handle(statusCode, context);
         }
     }

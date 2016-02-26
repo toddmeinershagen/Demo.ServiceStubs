@@ -5,8 +5,16 @@ using Nancy.Hosting.Self;
 
 namespace Demo.ServiceStubs.Core
 {
-    public class ServiceStubsHost : NancyHost, IDisposable
+    public class ServiceStubsHost : NancyHost
     {
+        public ServiceStubsHost(string baseUri)
+            : this(new Uri(baseUri))
+        {}
+
+        public ServiceStubsHost(string baseUri, INancyBootstrapper bootstrapper)
+            : this(new Uri(baseUri), bootstrapper)
+        {}
+
         public ServiceStubsHost(Uri baseUri)
             : this(baseUri, new ServiceStubsBootstrapper())
         {}
@@ -14,10 +22,5 @@ namespace Demo.ServiceStubs.Core
         public ServiceStubsHost(Uri baseUri, INancyBootstrapper bootstrapper)
             : base(baseUri, bootstrapper)
         {}
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
