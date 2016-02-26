@@ -10,6 +10,8 @@ namespace Demo.ServiceStubs.CommandLine
 {
     class Program
     {
+        public static int DefaultPort = 1234;
+
         static int Main(string[] args)
         {
             if (AppDomain.CurrentDomain.IsDefaultAppDomain())
@@ -17,14 +19,12 @@ namespace Demo.ServiceStubs.CommandLine
                 return CreateNewAppDomain();
             }
 
-            int port = 1234;
-
-            OptionSet options = new OptionSet();
-            options.Add("p|port=", (int v) => port = v);
+            var options = new OptionSet();
+            options.Add("p|port=", (int v) => DefaultPort = v);
             options.Add("h|?|help", v => ShowHelp(options));
             options.Parse(Environment.GetCommandLineArgs());
 
-            var uri = new Uri($"http://localhost:{port}");
+            var uri = new Uri($"http://localhost:{DefaultPort}");
             using (var host = new ServiceStubsHost(uri))
             {
                 host.Start();
@@ -40,12 +40,13 @@ namespace Demo.ServiceStubs.CommandLine
 
         static void ShowHelp(OptionSet p)
         {
-            Console.WriteLine("Usage: greet [OPTIONS]+ message");
-            Console.WriteLine("Greet a list of individuals with an optional message.");
-            Console.WriteLine("If no message is specified, a generic greeting is used.");
+            Console.WriteLine($"Usage: {Assembly.GetCallingAssembly().GetName().Name} [OPTIONS]+");
+            Console.WriteLine("Host a configurable set of stubbed service endpoints.");
+            Console.WriteLine($"If no port is specified, a generic port ({DefaultPort}) is used.");
             Console.WriteLine();
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
+            Console.WriteLine();
         }
 
         private static int CreateNewAppDomain()
